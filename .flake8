@@ -1,0 +1,20 @@
+[flake8]
+# Ignorar diretórios inteiros
+[flake8]
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    env,
+    .env,
+    migrations,      # Ignorar arquivos de migração
+    media,           # Arquivos de upload
+    staticfiles,     # Arquivos estáticos
+    *.sqlite3,       # Banco de dados SQLite
+    manage.py,       # Script principal do Django
+
+per-file-ignores =
+    migrations/*: E501,  # Linhas longas em migrations são normais
+    settings/*: F403,    # star imports em settings
+    */settings.py: F401  # imports não usados em settings
