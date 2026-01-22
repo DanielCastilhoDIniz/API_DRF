@@ -24,8 +24,7 @@ class AvaliacaoSerializer(serializers.ModelSerializer):
 
 
 class CursoSerializer(serializers.ModelSerializer):
-    # Nested Relationship (be carefull!)
-    # avaliacoes = AvaliacaoSerializer(many=True, read_only=True)
+    # Nested Relationship     # avaliacoes = AvaliacaoSerializer(many=True, read_only=True)
 
     # HyperLinked Related Field
     # avaliacoes = serializers.HyperlinkedRelatedField(many=True,
