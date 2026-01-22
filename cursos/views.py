@@ -5,6 +5,9 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
+from django.db.models import Avg
+
+
 
 from .models import Curso, Avaliacao
 from .serializers import CursoSerializer, AvaliacaoSerializer
@@ -50,7 +53,10 @@ API V2
 """
 
 class CursoViewSet(viewsets.ModelViewSet):
-    queryset = Curso.objects.all()
+    # queryset = Curso.objects.all() (para retornar a média cai no N+1 problem)
+    queryset = Curso.objects.annotate(
+        media_avaliacoes=Avg('avaliacoes__avaliacao')
+    )
     serializer_class = CursoSerializer
 
 

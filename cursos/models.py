@@ -23,7 +23,7 @@ class Curso(Base):
 
     def __str__(self):
         return self.title
-    
+
 
 class Avaliacao(Base):
     curso =  models.ForeignKey(Curso, related_name='avaliacoes', on_delete=models.CASCADE)
